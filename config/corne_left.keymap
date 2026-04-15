@@ -19,6 +19,7 @@
 #define NUM 2
 #define FN 3
 
+/*
 &kscan0 {
     col-gpios
         = <&gpio0 31 GPIO_ACTIVE_HIGH>
@@ -28,6 +29,7 @@
         , <&gpio1 13 GPIO_ACTIVE_HIGH>
         , <&gpio1 11 GPIO_ACTIVE_HIGH>;
 };
+*/
 
 / {
     keymap {
