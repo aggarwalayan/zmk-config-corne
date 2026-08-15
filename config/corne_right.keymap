@@ -13,9 +13,11 @@
 #include <dt-bindings/zmk/reset.h>
 
 #define BASE 0
-#define RAISE 1
-#define NUM 2
-#define FN 3
+#define MBASE 1
+#define RAISE 2
+#define MRAISE 3
+#define NUM 4
+#define FN 5
 
 &kscan0 {
     col-gpios
