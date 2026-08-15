@@ -37,13 +37,29 @@
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
             // |  FN  |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | SHIFT | LWR | ALT |   | ENT | RSE  | WIN |
+            //                    | SHIFT | RAISE | ALT |   | ENTER | NUM  | WIN |
 
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P     &kp BSPC
 &kp LCTRL  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
 &mo 3  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LSHIFT  &mo 1  &kp LALT    &lt RAISE ENTER  &lt NUM SPACE  &kp LGUI
+                         &kp LSHIFT  &mo RAISE  &kp LALT    &lt RAISE ENTER  &lt NUM SPACE  &kp LGUI
+            >;
+        };
+
+        macos_base_layer {
+            display-name = "m_base";
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+            // |  FN  |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+            //                    | SHIFT | RAISE | OPT |   | ENTER | NUM  | CTRL |
+
+            bindings = <
+&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P     &kp BSPC
+&kp LGUI  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+&mo 3  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
+                         &kp LSHIFT  &mo MRAISE  &kp LALT    &lt RAISE ENTER  &lt NUM SPACE  &kp RCTRL
             >;
         };
 
@@ -58,6 +74,21 @@
 &kp ESC       &kp BSLH      &kp TILDE     &kp LBKT       &kp RBKT        &kp EQUAL                                   &trans    &kp PG_UP  &kp UP    &kp PG_DN   &none    &kp DELETE
 &trans       &kp PIPE      &kp GRAVE     &kp PLUS        &kp MINUS       &kp UNDER                                   &kp HOME  &kp LEFT   &kp DOWN  &kp RIGHT   &kp END   &trans
 &trans       &trans        &trans        &kp LBRC        &kp RBRC        &kp LA(F4)         &none         &kp LG(LC(LEFT))     &kp LG(LC(RIGHT))   &trans    &trans    &trans
+                                      &trans    &trans     &trans        &trans  &trans    &none
+            >;
+        };
+
+                macos_raise_layer {
+            display-name = "m_raise";
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |   \  |   ~  |   [   |   ]   |   =   |                |        | PGUP |   ^   | PGDN |       | DELETE|
+// |       |   |  |   `  |   +   |   -   |   _   |                |  HOME  |   <- |   v   |  ->  | END   |       |
+// |       |      |      |   {   |   }   | ALTF4 |                |        |LDESK |  RDESK|      |       |       |
+//                |      |       |       |       |      |  |      |        |      |       |      |
+            bindings = <
+&kp ESC       &kp BSLH      &kp TILDE     &kp LBKT       &kp RBKT        &kp EQUAL                                   &trans    &kp PG_UP  &kp UP    &kp PG_DN   &none    &kp DELETE
+&trans       &kp PIPE      &kp GRAVE     &kp PLUS        &kp MINUS       &kp UNDER                                   &kp HOME  &kp LEFT   &kp DOWN  &kp RIGHT   &kp END   &trans
+&trans       &trans        &trans        &kp LBRC        &kp RBRC        &none         &none         &kp LC(LEFT)     &kp LC(RIGHT)   &trans    &trans    &trans
                                       &trans    &trans     &trans        &trans  &trans    &none
             >;
         };
@@ -84,12 +115,12 @@
 // |EP_TOG |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6  |  F7   |  F8   |  F9  |  F10  |  F11  |
 // |       |  p1 |  p2 |  p3  |  p4  |  p5  |                   |      |       |       |      |       |  F12  |
 // |       |  bt0|  bt1|  bt2 |  bt3 |  bt4 |                   |      |       |       |      |       |       |
-//                            |      |      |  BTCLR  |  |      |      |       |
+//                            |WINBASE  | MBASE     |  BTCLR  |  |      |      |       |
             bindings = <
 &ext_power EP_TOG    &kp F1    &kp F2    &kp F3      &kp F4    &kp F5                                           &kp F6    &kp F7   &kp F8    &kp F9    &kp F10   &kp F11
 &none &none    &none    &none      &none    &none                                           &none &none  &none  &none  &none  &kp F12
 &trans   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &none  &none  &none  &none  &none  &none
-                    &none         &studio_unlock    &bt BT_CLR             &none       &none     &none
+                    &to BASE         &to MBASE    &bt BT_CLR             &none       &none     &none
             >;
 };
 };
