@@ -30,6 +30,18 @@
 };
 
 / {
+    macros {
+        macos_profile: macos_profile {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+
+            bindings =
+                <&bt BT_SEL 0>
+                , <&to MBASE>
+                ;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -121,7 +133,7 @@
             bindings = <
 &ext_power EP_TOG    &kp F1    &kp F2    &kp F3      &kp F4    &kp F5                                           &kp F6    &kp F7   &kp F8    &kp F9    &kp F10   &kp F11
 &none &none    &none    &none      &none    &none                                           &none &none  &none  &none  &none  &kp F12
-&trans   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &none  &none  &none  &none  &none  &none
+&trans   &macos_profile 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &none  &none  &none  &none  &none  &none
                     &to BASE         &to MBASE    &bt BT_CLR             &none       &none     &none
             >;
 };
